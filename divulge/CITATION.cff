@@ -1,0 +1,33 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: KontaTech
+authors:
+  - family-names: Santos
+    given-names: Davi Érico dos
+  - family-names: Corrêa
+    given-names: Felipe
+  - family-names: Aquino
+    given-names: João Augusto
+  - family-names: Pacheco
+    given-names: Leandro
+  - family-names: Maia
+    given-names: Lucas
+  - family-names: Valente
+    given-names: Lucas
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Mol
+    given-names: Artur
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Vilela
+    given-names: Leonardo
+keywords:
+  - finanças pessoais
+  - economia colaborativa
+  - gestão de despesas
+  - notificações em tempo real
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti5-6904100-kontatech.git
+license: CC-BY-4.0
+version: 0.1.1
+date-released: 2025-12-22
