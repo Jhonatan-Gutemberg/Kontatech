@@ -4,7 +4,7 @@ import 'package:kontatech/config/api_config.dart';
 import 'package:kontatech/utils/secure_storage.dart';
 
 class UserService {
-  static const String _baseUrl = apiBaseUrl;
+  static String get _baseUrl => apiBaseUrl;
 
   // ==================== LISTAR USUÁRIOS ====================
   // Endpoint: GET /usuarios/

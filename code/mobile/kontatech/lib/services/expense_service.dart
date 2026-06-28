@@ -6,7 +6,7 @@ import 'package:kontatech/config/api_config.dart';
 class ExpenseService {
   // 1. CORREÇÃO: Removendo o /api/v1 para corresponder ao seu group_service
   // A URL base correta é esta, de acordo com seu código funcional:
-  static const String _baseUrl = apiBaseUrl;
+  static String get _baseUrl => apiBaseUrl;
 
   // Função para CRIAR uma nova despesa
   // Ela agora recebe o Map<String, dynamic> completo, o que é mais robusto

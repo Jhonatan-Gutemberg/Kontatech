@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\maial\OneDrive\Documentos\GitHub\pmg-es-2025-2-ti5-6904100-kontatech\code\backend\.venv311
+set VIRTUAL_ENV=C:\Users\mecjg\OneDrive\Documentos\Trabalho final Gerencia\Kontatech\code\BackEnd\.venv311
 
 if not defined PROMPT set PROMPT=$P$G
 

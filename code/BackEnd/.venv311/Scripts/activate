@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\maial\OneDrive\Documentos\GitHub\pmg-es-2025-2-ti5-6904100-kontatech\code\backend\.venv311"
+VIRTUAL_ENV="C:\Users\mecjg\OneDrive\Documentos\Trabalho final Gerencia\Kontatech\code\BackEnd\.venv311"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

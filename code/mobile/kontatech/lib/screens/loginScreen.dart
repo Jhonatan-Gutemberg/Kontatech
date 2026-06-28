@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kontatech/screens/registerScreen.dart';
 import 'package:kontatech/services/auth_service.dart';
-import 'package:kontatech/screens/home_screen.dart';
 import 'package:kontatech/services/main_navigation_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,20 +18,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _login() async {
     setState(() => _isLoading = true);
-    bool success = await AuthService.login(
+    final errorMessage = await AuthService.login(
       _emailController.text.trim(),
       _passwordController.text.trim(),
     );
     setState(() => _isLoading = false);
 
-    if (success) {
+    if (errorMessage == null) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Email ou senha incorretos')),
+        SnackBar(content: Text(errorMessage)),
       );
     }
   }
