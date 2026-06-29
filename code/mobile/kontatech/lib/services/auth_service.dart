@@ -7,7 +7,7 @@ class AuthService {
   static String get baseUrl => apiBaseUrl;
 
   static Future<String?> login(String email, String password) async {
-    final url = Uri.parse('$baseUrl/auth/login');
+    final url = Uri.parse(apiUrl('/auth/login'));
 
     try {
       final response = await http.post(
@@ -51,7 +51,7 @@ class AuthService {
   }
 
   static Future<bool> register(String nome, String email, String senha) async {
-    final url = Uri.parse('$baseUrl/auth/register');
+    final url = Uri.parse(apiUrl('/auth/register'));
 
     try {
       final response = await http.post(
