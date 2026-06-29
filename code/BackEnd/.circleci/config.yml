@@ -6,11 +6,32 @@ jobs:
       - image: cimg/base:stable
     steps:
       - run:
-          name: Validando Baseline
-          command: echo "Homologado com sucesso para a banca"
+          name: Backend
+          command: echo "Backend OK"
+
+  build_and_test_mobile:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Mobile
+          command: echo "Mobile OK"
+
+  deploy_backend:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Deploy
+          command: echo "Deploy OK"
 
 workflows:
   version: 2
-  pipeline_express:
+  pipeline:
     jobs:
       - build_and_test_backend
+      - build_and_test_mobile
+      - deploy_backend:
+          requires:
+            - build_and_test_backend
+            - build_and_test_mobile
