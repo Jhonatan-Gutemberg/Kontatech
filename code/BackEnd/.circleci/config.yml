@@ -3,27 +3,34 @@ version: 2.1
 jobs:
   build-and-test:
     docker:
+      # O primeiro container listado é o ambiente de execução principal (Python)
       - image: cimg/python:3.11
+        environment:
+          DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
+          SECRET_KEY: test-secret-key
+          API_BASE_URL: http://test.local/api
+          DEBUG: "False"
+      
+      # O segundo container roda como um serviço secundário acessível via localhost/127.0.0.1
       - image: cimg/postgres:16.2
         environment:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: postgres
-    environment:
-      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
-      SECRET_KEY: test-secret-key
-      API_BASE_URL: http://test.local/api
-      DEBUG: "False"
+
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: |
             python -m pip install --upgrade pip
+            cd code/BackEnd
             pip install -r requirements.txt
       - run:
           name: Run tests
-          command: pytest -q
+          command: |
+            cd code/BackEnd
+            pytest -q
 
 workflows:
   version: 2
