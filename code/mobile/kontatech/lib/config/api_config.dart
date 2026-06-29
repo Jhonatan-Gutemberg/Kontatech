@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 String get apiBaseUrl {
-  // URL oficial de produção gerada pelo Render
   return 'https://kontatech-backend.onrender.com';
 
   /*
