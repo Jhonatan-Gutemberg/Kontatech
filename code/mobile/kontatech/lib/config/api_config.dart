@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 
 String get apiBaseUrl {
-  return 'https://pmg-es-2025-2-ti5-6904100-kontatech.onrender.com';
+  // URL oficial de produção gerada pelo Render
+  return 'https://kontatech-backend.onrender.com';
 
   /*
   if (kIsWeb) {
@@ -21,8 +22,15 @@ String get apiBaseUrl {
 String apiUrl(String path) => '$apiBaseUrl$path';
 
 String wsNotificationsUrl(String jwt) {
+  // Identifica dinamicamente se estamos usando o Render em produção
   if (apiBaseUrl.contains('onrender.com')) {
-    return 'wss://pmg-es-2025-2-ti5-6904100-kontatech.onrender.com/ws/notifications?token=$jwt';
+    // Alinhado com a URL real e usando wss:// seguro para produção
+    return 'wss://kontatech-backend.onrender.com/ws/notifications?token=$jwt';
   }
-  return 'ws://192.168.1.11:8000/ws/notifications?token=$jwt';
+  
+  // Fallback seguro para rodar localmente no celular físico ou emulador
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    return 'ws://10.0.2.2:8000/ws/notifications?token=$jwt';
+  }
+  return 'ws://localhost:8000/ws/notifications?token=$jwt';
 }
