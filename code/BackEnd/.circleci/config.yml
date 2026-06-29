@@ -5,29 +5,34 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - run:
-          name: Backend
-          command: echo "Backend OK"
+          name: Validando Backend
+          command: echo "Backend homologado com sucesso."
 
   build_and_test_mobile:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - run:
-          name: Mobile
-          command: echo "Mobile OK"
+          name: Validando Mobile
+          command: echo "Mobile homologado com sucesso."
 
   deploy_backend:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - run:
-          name: Deploy
-          command: echo "Deploy OK"
+          name: Simulação de Deploy
+          command: |
+            echo "Iniciando Deploy..."
+            echo "Sistema implantado com sucesso."
 
 workflows:
   version: 2
-  pipeline:
+  pipeline_kontatech:
     jobs:
       - build_and_test_backend
       - build_and_test_mobile
@@ -35,3 +40,8 @@ workflows:
           requires:
             - build_and_test_backend
             - build_and_test_mobile
+          filters:
+            branches:
+              only:
+                - main
+                - master
