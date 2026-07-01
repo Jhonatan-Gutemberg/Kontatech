@@ -8,7 +8,7 @@ Além disso, o sistema também oferece ferramentas para acompanhamento de invest
 * Davi Érico dos Santos
 * Felipe Corrêa
 * João Augusto Aquino
-* Leandro C. Pacheco
+* Leandro Caldas Pacheco
 * Lucas Maia
 * Lucas Valente 
 
